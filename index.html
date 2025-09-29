@@ -6,6 +6,33 @@
 <title>Eliachesuona</title>
 
 <style>
+/* --- Font personalizzato --- */
+@font-face {
+  font-family: 'MioFont';
+  src: url('./fonts/MioFont-Regular.woff2') format('woff2'),
+       url('./fonts/MioFont-Regular.woff') format('woff'),
+       url('./fonts/MioFont-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MioFont';
+  src: url('./fonts/MioFont-Bold.woff2') format('woff2'),
+       url('./fonts/MioFont-Bold.woff') format('woff'),
+       url('./fonts/MioFont-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* --- Base --- */
+body { 
+  margin:0; 
+  background:#0b0b10; 
+  font-family:'MioFont', system-ui, sans-serif; 
+}
+
+/* --- Header / Navbar --- */
 :root{
   --brand-yellow:#f3bc11;
   --brand-yellow-soft:#ffe88c;
@@ -14,17 +41,8 @@
   --safe-top:env(safe-area-inset-top,0px);
   --hover-lilla:#c89dc8;
   --hero-offset: 80vh;
-  --title-shift: -25px;
 }
 
-/* --- Base --- */
-body{ 
-  margin:0; 
-  background:#0b0b10; 
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; 
-}
-
-/* --- Header / Navbar --- */
 .site-header{
   position:relative;
   z-index:2147483647;
@@ -89,9 +107,9 @@ body{
 /* --- Hero Section --- */
 .hero-bg { animation: slowZoom 20s ease-in-out infinite alternate; will-change: transform; transform: translateZ(0); }
 @keyframes slowZoom { 0%{transform:scale(1);} 100%{transform:scale(1.04);} }
-@keyframes fadeUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
 .title-block h1{ opacity:0; animation:fadeUp 1.5s ease-out forwards; animation-delay:0.6s; }
 .statement{ opacity:0; animation:fadeUp 1.2s ease-out forwards; animation-delay:0.95s; }
+
 </style>
 </head>
 <body>
@@ -99,14 +117,14 @@ body{
 <!-- Navbar -->
 <header class="site-header" role="banner">
   <div class="nav-wrap">
-    <a href="./" class="brand" aria-label="Homepage Eliachesuona">
+    <a href="/" class="brand" aria-label="Homepage Eliachesuona">
       <span class="brand-mark">
         <img src="https://d1yei2z3i6k35z.cloudfront.net/10177233/68d28489c2950_Eliachesuona-Logo-ufficiale-no-sfondo.png" alt="Logo Eliachesuona">
       </span>
     </a>
     <div class="primary-nav" role="navigation" aria-label="Primaria">
       <ul class="menu" role="menubar">
-        <li role="none"><a href="./">Home</a></li>
+        <li role="none"><a href="https://www.eliachesuona.com" rel="noopener">Home</a></li>
         <li role="none" class="has-dropdown">
           <a href="#">Musica</a>
           <div class="dropdown">
@@ -136,23 +154,12 @@ body{
 </header>
 
 <script>
-// Dropdown desktop
+// Dropdown stabile
 document.querySelectorAll('.has-dropdown').forEach(function(item){
   let timeout;
   const dropdown = item.querySelector('.dropdown');
   item.addEventListener('mouseenter', () => { clearTimeout(timeout); dropdown.style.opacity='1'; dropdown.style.transform='translateY(0)'; dropdown.style.pointerEvents='auto'; });
   item.addEventListener('mouseleave', () => { timeout=setTimeout(()=>{ dropdown.style.opacity='0'; dropdown.style.transform='translateY(-8px)'; dropdown.style.pointerEvents='none'; },150); });
-});
-// Dropdown mobile (click)
-document.querySelectorAll('.has-dropdown > a').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const dd = a.nextElementSibling;
-    const isVisible = dd.style.opacity === '1';
-    dd.style.opacity = isVisible ? '0' : '1';
-    dd.style.transform = isVisible ? 'translateY(-8px)' : 'translateY(0)';
-    dd.style.pointerEvents = isVisible ? 'none' : 'auto';
-  });
 });
 </script>
 
