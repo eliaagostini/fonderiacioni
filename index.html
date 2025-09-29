@@ -8,31 +8,31 @@
 <style>
 /* --- Font personalizzato --- */
 @font-face {
-  font-family: 'MioFont';
-  src: url('./fonts/MioFont-Regular.woff2') format('woff2'),
-       url('./fonts/MioFont-Regular.woff') format('woff'),
-       url('./fonts/MioFont-Regular.ttf') format('truetype');
+  font-family: 'Tokyo';
+  src: url('./fonts/Tokyo.woff2') format('woff2'),
+       url('./fonts/Tokyo.woff') format('woff'),
+       url('./fonts/Tokyo.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'MioFont';
-  src: url('./fonts/MioFont-Bold.woff2') format('woff2'),
-       url('./fonts/MioFont-Bold.woff') format('woff'),
-       url('./fonts/MioFont-Bold.ttf') format('truetype');
+  font-family: 'Tokyo';
+  src: url('./fonts/Tokyo-Bold.woff2') format('woff2'),
+       url('./fonts/Tokyo-Bold.woff') format('woff'),
+       url('./fonts/Tokyo-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 /* --- Base --- */
-body { 
+body {
   margin:0; 
   background:#0b0b10; 
-  font-family:'MioFont', system-ui, sans-serif; 
+  font-family:'Tokyo', system-ui, sans-serif; 
 }
 
-/* --- Header / Navbar --- */
+/* --- Variabili --- */
 :root{
   --brand-yellow:#f3bc11;
   --brand-yellow-soft:#ffe88c;
@@ -43,6 +43,7 @@ body {
   --hero-offset: 80vh;
 }
 
+/* --- Header / Navbar --- */
 .site-header{
   position:relative;
   z-index:2147483647;
@@ -73,10 +74,12 @@ body {
 }
 .primary-nav .menu > li{ position:relative; display:flex; align-items:center; }
 .primary-nav .menu > li > a{
-  font-weight:800; font-size:1.125rem; line-height:1;
+  font-weight:700;
+  font-size:1.125rem; line-height:1;
   display:inline-flex; align-items:center; padding:12px 14px;
   border-radius:10px; text-decoration:none; color:#111 !important; background:transparent !important;
   transition:color .25s, background .25s, box-shadow .25s;
+  font-family:'Tokyo', system-ui, sans-serif;
 }
 .primary-nav .menu > li > a:hover{
   background:rgba(200,157,200,.15) !important;
@@ -91,8 +94,9 @@ body {
   transition:opacity .25s ease, transform .25s ease; z-index:9999;
 }
 .primary-nav .menu li .dropdown a{
-  display:flex; align-items:center; gap:10px; color:#111 !important; text-decoration:none; font-weight:800;
+  display:flex; align-items:center; gap:10px; color:#111 !important; text-decoration:none; font-weight:700;
   padding:10px 12px; border-radius:8px; font-size:1rem; transition:background .2s ease,color .2s ease;
+  font-family:'Tokyo', system-ui, sans-serif;
 }
 .primary-nav .menu li .dropdown a:hover{
   background:rgba(200,157,200,.25);
@@ -107,9 +111,19 @@ body {
 /* --- Hero Section --- */
 .hero-bg { animation: slowZoom 20s ease-in-out infinite alternate; will-change: transform; transform: translateZ(0); }
 @keyframes slowZoom { 0%{transform:scale(1);} 100%{transform:scale(1.04);} }
-.title-block h1{ opacity:0; animation:fadeUp 1.5s ease-out forwards; animation-delay:0.6s; }
-.statement{ opacity:0; animation:fadeUp 1.2s ease-out forwards; animation-delay:0.95s; }
-
+.title-block h1{ 
+  opacity:0; 
+  animation:fadeUp 1.5s ease-out forwards; 
+  animation-delay:0.6s; 
+  font-family:'Tokyo', system-ui, sans-serif;
+}
+.statement{ 
+  opacity:0; 
+  animation:fadeUp 1.2s ease-out forwards; 
+  animation-delay:0.95s; 
+  font-family:'Tokyo', system-ui, sans-serif;
+}
+@keyframes fadeUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
 </style>
 </head>
 <body>
@@ -177,7 +191,7 @@ document.querySelectorAll('.has-dropdown').forEach(function(item){
         La calma racconta di più
       </p>
     </div>
-    <a href="https://linktr.ee/superfluoecs" style="margin-top:10px; display:inline-block; background-color:#fff; color:#000; padding:10px 20px; border-radius:4px; text-decoration:none; font-weight:bold;">
+    <a href="https://linktr.ee/superfluoecs" style="margin-top:10px; display:inline-block; background-color:#fff; color:#000; padding:10px 20px; border-radius:4px; text-decoration:none; font-weight:bold; font-family:'Tokyo', system-ui, sans-serif;">
       ascolta ora
     </a>
   </div>
