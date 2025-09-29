@@ -29,12 +29,12 @@ body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, button {
 
 /* --- Variabili --- */
 :root {
-  --brand-yellow:#f3bc11;
-  --brand-yellow-soft:#ffe88c;
-  --logo-size:48px;
-  --maxw:1100px;
-  --safe-top:env(safe-area-inset-top,0px);
-  --hover-lilla:#c89dc8;
+  --brand-yellow: #f3bc11;
+  --brand-yellow-soft: #ffe88c;
+  --logo-size: 48px;
+  --maxw: 1100px;
+  --safe-top: env(safe-area-inset-top,0px);
+  --hover-lilla: #c89dc8;
   --hero-offset: 80vh;
 }
 
@@ -162,14 +162,31 @@ body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, button {
   color: var(--hover-lilla) !important;
 }
 
-@media(max-width:768px){
+@media(max-width:1024px){
   .nav-wrap { flex-wrap: wrap; }
   .primary-nav { flex: 0 0 100%; }
   .primary-nav .menu { justify-content: center; flex-wrap: wrap; }
 }
 
 /* --- Hero Section --- */
+.full-click-area {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 120vh;
+  text-align: center;
+  color: inherit;
+  overflow: hidden;
+}
+
 .hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  z-index: 0;
   animation: slowZoom 20s ease-in-out infinite alternate;
   will-change: transform;
   transform: translateZ(0);
@@ -184,12 +201,18 @@ body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, button {
   opacity: 0; 
   animation: fadeUp 1.5s ease-out forwards; 
   animation-delay: 0.6s; 
+  font-size: clamp(38px, 8vw, 100px);
+  word-break: break-word;
+  line-height: 1.1;
 }
 
 .statement { 
   opacity: 0; 
   animation: fadeUp 1.2s ease-out forwards; 
   animation-delay: 0.95s; 
+  font-size: 1rem;
+  word-break: break-word;
+  line-height: 1.1;
 }
 
 @keyframes fadeUp {
@@ -207,6 +230,18 @@ body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, button {
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
+}
+
+/* --- Mobile / Tablet Responsive --- */
+@media (max-width: 1024px) {
+  .full-click-area { height: 100vh; }
+}
+
+@media (max-width: 768px) {
+  .full-click-area { height: 90vh; }
+  .title-block h1 { font-size: clamp(28px, 10vw, 60px); }
+  .statement { font-size: 0.9rem; bottom: -5px; }
+  .hero-button { padding: 8px 16px; font-size: 0.9rem; }
 }
 </style>
 </head>
@@ -273,14 +308,13 @@ document.querySelectorAll('.has-dropdown').forEach(function(item){
 </script>
 
 <!-- Hero Section -->
-<div class="full-click-area" onclick="window.location.href='https://www.eliachesuona.com'" style="display:block; position:relative; width:100%; height:120vh; text-align:center; color:inherit; overflow:hidden;">
-  <img class="hero-bg" src="https://d1yei2z3i6k35z.cloudfront.net/10177233/689f5f0e0ec6d_hero_optimized.webp"
-       style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%; z-index:0;" alt="Background hero" />
+<div class="full-click-area" onclick="window.location.href='https://www.eliachesuona.com'">
+  <img class="hero-bg" src="https://d1yei2z3i6k35z.cloudfront.net/10177233/689f5f0e0ec6d_hero_optimized.webp" alt="Background hero" />
   <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-start; height:100%; position:relative; z-index:2;">
     <div style="height: var(--hero-offset);"></div>
     <div class="title-block" style="position:relative; text-align:center;">
       <a href="https://www.eliachesuona.com" style="text-decoration:none; color:inherit; z-index:2;">
-        <h1 style="color:#f3bc11; font-size:clamp(38px,8vw,100px); text-transform:uppercase;">Eliachesuona</h1>
+        <h1 style="color:#f3bc11; text-transform:uppercase;">Eliachesuona</h1>
       </a>
       <p class="statement" style="color:#fff; position:absolute; left:50%; transform:translateX(-50%); bottom:-10px;">
         La calma racconta di più
