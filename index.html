@@ -7,29 +7,29 @@
 
 <style>
 /* --- Font personalizzato --- */
+/* Regular */
 @font-face {
   font-family: 'Tokyo';
-  src: url('./fonts/Tokyo.woff2') format('woff2'),
-       url('./fonts/Tokyo.woff') format('woff'),
+  src: url('./fonts/Tokyo.woff') format('woff'),
        url('./fonts/Tokyo.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
+/* Bold */
 @font-face {
   font-family: 'Tokyo';
-  src: url('./fonts/Tokyo-Bold.woff2') format('woff2'),
-       url('./fonts/Tokyo-Bold.woff') format('woff'),
+  src: url('./fonts/Tokyo-Bold.woff') format('woff'),
        url('./fonts/Tokyo-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
-/* --- Base --- */
-body {
-  margin:0; 
-  background:#0b0b10; 
-  font-family:'Tokyo', system-ui, sans-serif; 
+/* --- Applica Tokyo a tutti i testi --- */
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+  font-family: 'Tokyo', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* --- Variabili --- */
@@ -79,7 +79,6 @@ body {
   display:inline-flex; align-items:center; padding:12px 14px;
   border-radius:10px; text-decoration:none; color:#111 !important; background:transparent !important;
   transition:color .25s, background .25s, box-shadow .25s;
-  font-family:'Tokyo', system-ui, sans-serif;
 }
 .primary-nav .menu > li > a:hover{
   background:rgba(200,157,200,.15) !important;
@@ -96,7 +95,6 @@ body {
 .primary-nav .menu li .dropdown a{
   display:flex; align-items:center; gap:10px; color:#111 !important; text-decoration:none; font-weight:700;
   padding:10px 12px; border-radius:8px; font-size:1rem; transition:background .2s ease,color .2s ease;
-  font-family:'Tokyo', system-ui, sans-serif;
 }
 .primary-nav .menu li .dropdown a:hover{
   background:rgba(200,157,200,.25);
@@ -115,15 +113,14 @@ body {
   opacity:0; 
   animation:fadeUp 1.5s ease-out forwards; 
   animation-delay:0.6s; 
-  font-family:'Tokyo', system-ui, sans-serif;
 }
 .statement{ 
   opacity:0; 
   animation:fadeUp 1.2s ease-out forwards; 
   animation-delay:0.95s; 
-  font-family:'Tokyo', system-ui, sans-serif;
 }
 @keyframes fadeUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
 </style>
 </head>
 <body>
@@ -172,8 +169,19 @@ body {
 document.querySelectorAll('.has-dropdown').forEach(function(item){
   let timeout;
   const dropdown = item.querySelector('.dropdown');
-  item.addEventListener('mouseenter', () => { clearTimeout(timeout); dropdown.style.opacity='1'; dropdown.style.transform='translateY(0)'; dropdown.style.pointerEvents='auto'; });
-  item.addEventListener('mouseleave', () => { timeout=setTimeout(()=>{ dropdown.style.opacity='0'; dropdown.style.transform='translateY(-8px)'; dropdown.style.pointerEvents='none'; },150); });
+  item.addEventListener('mouseenter', () => { 
+    clearTimeout(timeout); 
+    dropdown.style.opacity='1'; 
+    dropdown.style.transform='translateY(0)'; 
+    dropdown.style.pointerEvents='auto'; 
+  });
+  item.addEventListener('mouseleave', () => { 
+    timeout=setTimeout(()=>{
+      dropdown.style.opacity='0'; 
+      dropdown.style.transform='translateY(-8px)'; 
+      dropdown.style.pointerEvents='none'; 
+    },150); 
+  });
 });
 </script>
 
@@ -191,7 +199,7 @@ document.querySelectorAll('.has-dropdown').forEach(function(item){
         La calma racconta di più
       </p>
     </div>
-    <a href="https://linktr.ee/superfluoecs" style="margin-top:10px; display:inline-block; background-color:#fff; color:#000; padding:10px 20px; border-radius:4px; text-decoration:none; font-weight:bold; font-family:'Tokyo', system-ui, sans-serif;">
+    <a href="https://linktr.ee/superfluoecs" style="margin-top:10px; display:inline-block; background-color:#fff; color:#000; padding:10px 20px; border-radius:4px; text-decoration:none; font-weight:bold;">
       ascolta ora
     </a>
   </div>
